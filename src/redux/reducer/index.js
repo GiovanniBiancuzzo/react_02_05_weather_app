@@ -1,5 +1,5 @@
 const initialState = {
-    search: [],//qui si conserva il risultato della ricerca
+    search: '',//qui si conserva il risultato della ricerca
     today: {
         name: "",
         weather: [],
@@ -42,7 +42,7 @@ const mainReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_CITY': return {
             ...state,
-            search: [...state.search, action.payload]
+            search: action.payload,
         };
         case "ADD_CITY_WEATHER_TODAY": return {
             ...state,

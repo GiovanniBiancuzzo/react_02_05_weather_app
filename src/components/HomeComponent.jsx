@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import WeatherComponent from "./WeatherComponent";
 
 const HomeComponent = () => {
-    const city = useSelector((state) => state.search[0]);
+    const city = useSelector((state) => state.search);
     const weatherInfo = useSelector((state) => state);
 
     const weatherDispatch = useDispatch();
@@ -93,9 +93,9 @@ const HomeComponent = () => {
     useEffect(() => {
         console.log("did mount");
         weatherFetch();
-    }, [weatherInfo.search.length]);
+    }, [weatherInfo.search]);
 
-    return weatherInfo.search.length ? (
+    return weatherInfo.search ? (
         <WeatherComponent weatherInfo={weatherInfo} />
     ) : (
         <h3 className="text-center mt-3">

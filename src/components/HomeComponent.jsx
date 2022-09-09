@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import WeatherComponent from "./WeatherComponent";
 
 const HomeComponent = () => {
-    const city = useSelector((state) => state.search);
-    const weatherInfo = useSelector((state) => state);
+    const city = useSelector((state) => state.search); //recupero la città dallo store
+    const weatherInfo = useSelector((state) => state); //recupero le info meteo, precedentemente mandate allo store per darle ai componenti e renderizzarle
 
     const weatherDispatch = useDispatch();
 

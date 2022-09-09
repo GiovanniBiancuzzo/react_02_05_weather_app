@@ -27,18 +27,55 @@ const HomeComponent = () => {
     const weatherFetch = () => {
         console.log("fetch meteo");
         fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=messina&APPID=b4bf487457c59aad1bf353eadea50057&units=metric`
+            `https://api.openweathermap.org/data/2.5/forecast?q=messina&APPID=b4bf487457c59aad1bf353eadea50057&units=metric`
         )
             .then((res) => res.json())
+            // .then((data) => data.list[0])
             .then((data) => {
                 weatherDispatch({
-                    type: "ADD_CITY_WEATHER",
+                    type: "ADD_CITY_WEATHER_TODAY",
                     payload: {
                         name: "messina",
-                        weather: data.weather[0],
-                        main: data.main,
-                        wind: data.wind,
-                        clouds: data.clouds,
+                        weather: data.list[0].weather[0],
+                        main: data.list[0].main,
+                        wind: data.list[0].wind,
+                        clouds: data.list[0].clouds,
+                        // rain: weatherInfo.rain,
+                        // snow: weatherInfo.snow,
+                    },
+                });
+                weatherDispatch({
+                    type: "ADD_CITY_WEATHER_ONEDAY",
+                    payload: {
+                        name: "messina",
+                        weather: data.list[1].weather[0],
+                        main: data.list[1].main,
+                        wind: data.list[1].wind,
+                        clouds: data.list[1].clouds,
+                        // rain: weatherInfo.rain,
+                        // snow: weatherInfo.snow,
+                    },
+                });
+                weatherDispatch({
+                    type: "ADD_CITY_WEATHER_TWODAY",
+                    payload: {
+                        name: "messina",
+                        weather: data.list[2].weather[0],
+                        main: data.list[2].main,
+                        wind: data.list[2].wind,
+                        clouds: data.list[2].clouds,
+                        // rain: weatherInfo.rain,
+                        // snow: weatherInfo.snow,
+                    },
+                });
+                weatherDispatch({
+                    type: "ADD_CITY_WEATHER_THREEDAY",
+                    payload: {
+                        name: "messina",
+                        weather: data.list[3].weather[0],
+                        main: data.list[3].main,
+                        wind: data.list[3].wind,
+                        clouds: data.list[3].clouds,
                         // rain: weatherInfo.rain,
                         // snow: weatherInfo.snow,
                     },

@@ -13,22 +13,25 @@ import WeatherCard from "./WeatherCard";
 const WeatherComponent = (props) => {
     return (
         <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={props.image} />
+            <Card.Img variant="top" src={"image"} />
             <Card.Body>
                 <div>
-                    <Card.Title>{props.weatherInfo.name}</Card.Title>
-                    <Badge>{props.weatherInfo.main.temp}</Badge>
+                    <Card.Title>{props.weatherInfo.today.name}</Card.Title>
+                    <Badge>{props.weatherInfo.today.main.temp}</Badge>
                 </div>
-                <WeatherCard weatherInfo={props.weatherInfo} />
+                <WeatherCard weatherInfo={props.weatherInfo.today} />
             </Card.Body>
             <Accordion>
                 <ListGroup className="list-group-flush">
-                    <Accordion.Toggle as={ListGroupItem} eventKey="1">
+                    <Accordion.Toggle as={ListGroupItem} eventKey="0">
                         Domani
                     </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
+
+                    <Accordion.Collapse eventKey="0">
                         <ListGroupItem>
-                            {/* <WeatherCard info1={props.weatherInfo} /> */}
+                            <WeatherCard
+                                weatherInfo={props.weatherInfo.oneDay}
+                            />
                         </ListGroupItem>
                     </Accordion.Collapse>
 
@@ -37,16 +40,20 @@ const WeatherComponent = (props) => {
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
                         <ListGroupItem>
-                            {/* <WeatherCard info2={props.weatherInfo} /> */}
+                            <WeatherCard
+                                weatherInfo={props.weatherInfo.twoDay}
+                            />
                         </ListGroupItem>
                     </Accordion.Collapse>
 
-                    <Accordion.Toggle as={ListGroupItem} eventKey="1">
+                    <Accordion.Toggle as={ListGroupItem} eventKey="2">
                         Tra 3 giorni
                     </Accordion.Toggle>
-                    <Accordion.Collapse eventKey="1">
+                    <Accordion.Collapse eventKey="2">
                         <ListGroupItem>
-                            {/* <WeatherCard info3={props.weatherInfo} /> */}
+                            <WeatherCard
+                                weatherInfo={props.weatherInfo.threeDay}
+                            />
                         </ListGroupItem>
                     </Accordion.Collapse>
 

@@ -13,14 +13,15 @@ import WeatherCard from "./WeatherCard";
 
 const WeatherComponent = (props) => {
     return (
-        <Container className="justify-content-center mt-3">
+        <Container className=" mt-3">
             <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={"image"} />
                 <Card.Body>
-                    <div>
-                        <Card.Title>{props.weatherInfo.today.name}</Card.Title>
-                        <Badge>{props.weatherInfo.today.main.temp}</Badge>
-                    </div>
+                    <Card.Title>
+                        {props.weatherInfo.today.name}{" "}
+                        <Badge>{props.weatherInfo.today.main.temp} °C</Badge>
+                    </Card.Title>
+
                     <WeatherCard weatherInfo={props.weatherInfo.today} />
                 </Card.Body>
                 <Accordion>

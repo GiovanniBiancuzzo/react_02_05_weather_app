@@ -28,10 +28,10 @@ const HomeComponent = () => {
             type: "ADD_CITY_WEATHER_ONEDAY",
             payload: {
                 name: data.city.name,
-                weather: data.list[1].weather[0],
-                main: data.list[1].main,
-                wind: data.list[1].wind,
-                clouds: data.list[1].clouds,
+                weather: data.list[8].weather[0],
+                main: data.list[8].main,
+                wind: data.list[8].wind,
+                clouds: data.list[8].clouds,
                 // rain: weatherInfo.rain,
                 // snow: weatherInfo.snow,
             },
@@ -40,10 +40,10 @@ const HomeComponent = () => {
             type: "ADD_CITY_WEATHER_TWODAY",
             payload: {
                 name: data.city.name,
-                weather: data.list[2].weather[0],
-                main: data.list[2].main,
-                wind: data.list[2].wind,
-                clouds: data.list[2].clouds,
+                weather: data.list[16].weather[0],
+                main: data.list[16].main,
+                wind: data.list[16].wind,
+                clouds: data.list[16].clouds,
                 // rain: weatherInfo.rain,
                 // snow: weatherInfo.snow,
             },
@@ -52,10 +52,10 @@ const HomeComponent = () => {
             type: "ADD_CITY_WEATHER_THREEDAY",
             payload: {
                 name: data.city.name,
-                weather: data.list[3].weather[0],
-                main: data.list[3].main,
-                wind: data.list[3].wind,
-                clouds: data.list[3].clouds,
+                weather: data.list[24].weather[0],
+                main: data.list[24].main,
+                wind: data.list[24].wind,
+                clouds: data.list[24].clouds,
                 // rain: weatherInfo.rain,
                 // snow: weatherInfo.snow,
             },
@@ -77,9 +77,8 @@ const HomeComponent = () => {
 
     const weatherFetch = () => {
         console.log("fetch meteo");
-        console.log(weatherInfo);
         fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=b4bf487457c59aad1bf353eadea50057&units=metric`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=b4bf487457c59aad1bf353eadea50057&cnt=25&units=metric&lang=it` //25 risultati in unità metriche in italiano
         )
             .then((res) => res.json())
             .then((data) => {
@@ -93,6 +92,7 @@ const HomeComponent = () => {
     useEffect(() => {
         console.log("did mount");
         weatherFetch();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [weatherInfo.search]);
 
     return weatherInfo.search ? (

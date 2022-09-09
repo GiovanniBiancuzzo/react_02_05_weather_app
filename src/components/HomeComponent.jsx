@@ -5,28 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import WeatherComponent from "./WeatherComponent";
 
 const HomeComponent = () => {
-    // const [city, setCity] = useState({
-    //     name: {
-    //         lat: "",
-    //         lng: "",
-    //     },
-    // });
-
-    const [weatherInfo, setWeatherInfo] = useState({
-        name: "messina",
-        weather: [],
-        main: {},
-        wind: {},
-        clouds: {},
-        rain: {},
-        snow: {},
-    });
-
     const [image, setImage] = useState("");
 
     const weatherDispatch = useDispatch();
 
-    // const weatherInfo = useSelector((state) => state);
+    const weatherInfo = useSelector((state) => state);
 
     // navigator.geolocation.getCurrentname(
     //     (pos) => {
@@ -48,17 +31,6 @@ const HomeComponent = () => {
         )
             .then((res) => res.json())
             .then((data) => {
-                setWeatherInfo({
-                    name: "messina",
-                    weather: data.weather,
-                    main: data.main,
-                    wind: data.wind,
-                    clouds: data.clouds,
-                    rain: data.rain,
-                    snow: data.snow,
-                });
-                console.log(weatherInfo);
-                console.log(data);
                 weatherDispatch({
                     type: "ADD_CITY_WEATHER",
                     payload: {

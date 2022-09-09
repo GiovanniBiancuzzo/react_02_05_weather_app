@@ -77,6 +77,7 @@ const HomeComponent = () => {
 
     const weatherFetch = () => {
         console.log("fetch meteo");
+        console.log(weatherInfo);
         fetch(
             `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=b4bf487457c59aad1bf353eadea50057&units=metric`
         )
@@ -92,16 +93,14 @@ const HomeComponent = () => {
     useEffect(() => {
         console.log("did mount");
         weatherFetch();
-    }, [weatherInfo]);
+    }, [weatherInfo.search.length]);
 
-    return weatherInfo ? (
+    return weatherInfo.search.length ? (
         <WeatherComponent weatherInfo={weatherInfo} />
     ) : (
-        <>
-            <h3 className="text-center mt-3">
-                Cerca una città in alto o concedi i permessi di localizzazione
-            </h3>
-        </>
+        <h3 className="text-center mt-3">
+            Cerca una città in alto o concedi i permessi di localizzazione
+        </h3>
     );
 };
 

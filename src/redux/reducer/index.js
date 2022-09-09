@@ -1,5 +1,5 @@
 const initialState = {
-    search: [],
+    search: [],//qui si conserva il risultato della ricerca
     today: {
         name: "",
         weather: [],

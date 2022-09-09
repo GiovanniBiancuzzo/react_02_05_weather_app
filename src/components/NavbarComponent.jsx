@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavbarComponent = () => {
     const location = useLocation();
     const cityDispatch = useDispatch();
     const [city, setCity] = useState("");
-    const navigate = useNavigate();
 
     const handleSubmit = () => {
         console.log("Invio città con dispatch");
@@ -16,7 +15,6 @@ const NavbarComponent = () => {
             payload: city,
         });
         setCity("");
-        // navigate("/");
     };
 
     return (
@@ -33,14 +31,6 @@ const NavbarComponent = () => {
                         }`}
                     >
                         Home
-                    </Link>
-                    <Link
-                        to="/history"
-                        className={`nav-link ${
-                            location.pathname === "/history" ? "active" : "" //da riempire con delle route
-                        }`}
-                    >
-                        Searched cities
                     </Link>
                 </Nav>
                 <Form

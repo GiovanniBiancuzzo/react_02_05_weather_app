@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import WeatherComponent from "./WeatherComponent";
 
 const HomeComponent = () => {
+    const city = useSelector((state) => state.search[0]);
     const weatherInfo = useSelector((state) => state);
 
     const weatherDispatch = useDispatch();
@@ -77,7 +78,7 @@ const HomeComponent = () => {
     const weatherFetch = () => {
         console.log("fetch meteo");
         fetch(
-            `https://api.openweathermap.org/data/2.5/forecast?q=messina&APPID=b4bf487457c59aad1bf353eadea50057&units=metric`
+            `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=b4bf487457c59aad1bf353eadea50057&units=metric`
         )
             .then((res) => res.json())
             .then((data) => {
@@ -91,7 +92,7 @@ const HomeComponent = () => {
     useEffect(() => {
         console.log("did mount");
         weatherFetch();
-    }, []);
+    }, [weatherInfo]);
 
     return weatherInfo ? (
         <WeatherComponent weatherInfo={weatherInfo} />

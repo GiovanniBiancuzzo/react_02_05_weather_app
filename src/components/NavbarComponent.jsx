@@ -6,15 +6,14 @@ import { Link, useLocation } from "react-router-dom";
 const NavbarComponent = () => {
     const location = useLocation();
     const cityDispatch = useDispatch();
-    const [city, setCity] = useState("");
+    const [search, setSearch] = useState("");
 
     const handleSubmit = () => {
         console.log("Invio città con dispatch");
         cityDispatch({
             type: "ADD_CITY",
-            payload: city,
+            payload: search,
         });
-        setCity("");
     };
 
     return (
@@ -44,9 +43,9 @@ const NavbarComponent = () => {
                         type="text"
                         placeholder="Inserisci una città"
                         className="mr-sm-2"
-                        value={city}
+                        value={search}
                         onChange={(e) => {
-                            setCity(e.target.value);
+                            setSearch(e.target.value);
                         }}
                     />
                     <Button variant="outline-success" type="submit">

@@ -16,5 +16,3 @@ Pensa all’interfaccia, i componenti di cui hai bisogno e comincia a creare la 
 fetch delle informazioni meteo e salvataggio in store apposito, dopodiche recupero dallo store e carico in app
 
 meteo fino a 3 giorni
-
-manca città da ricercare

@@ -3,7 +3,6 @@
 import {
     Accordion,
     Badge,
-    Button,
     Card,
     ListGroup,
     ListGroupItem,
@@ -15,10 +14,9 @@ const WeatherComponent = (props) => {
         <Card style={{ width: "18rem" }}>
             <Card.Img variant="top" src={"image"} />
             <Card.Body>
-                <div>
-                    <Card.Title>{props.weatherInfo.today.name}</Card.Title>
-                    <Badge>{props.weatherInfo.today.main.temp}</Badge>
-                </div>
+                <Card.Title>{props.weatherInfo.today.name}</Card.Title>
+                <Badge>{props.weatherInfo.today.main.temp}</Badge>
+
                 <WeatherCard weatherInfo={props.weatherInfo.today} />
             </Card.Body>
             <Accordion>
@@ -56,14 +54,11 @@ const WeatherComponent = (props) => {
                             />
                         </ListGroupItem>
                     </Accordion.Collapse>
-
-                    {/* <ListGroupItem>dopodomani</ListGroupItem>
-                    <ListGroupItem>3 giorni</ListGroupItem> */}
                 </ListGroup>
             </Accordion>
-            <Card.Body>
-                <Button>Aggiungi ai preferiti</Button>
-            </Card.Body>
+            {/* <Card.Body>
+                <Button variant="success">Aggiungi ai preferiti</Button>
+            </Card.Body> */}
         </Card>
     );
 };

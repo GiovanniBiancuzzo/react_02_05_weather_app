@@ -40,7 +40,7 @@ const NavbarComponent = () => {
                             location.pathname === "/history" ? "active" : "" //da riempire con delle route
                         }`}
                     >
-                        Searched cities
+                        Città cercate
                     </Link>
                 </Nav>
                 <Form

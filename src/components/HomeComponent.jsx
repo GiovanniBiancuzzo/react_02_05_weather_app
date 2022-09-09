@@ -35,7 +35,7 @@ const HomeComponent = () => {
                     type: "ADD_CITY_WEATHER",
                     payload: {
                         name: "messina",
-                        weather: data.weather,
+                        weather: data.weather[0],
                         main: data.main,
                         wind: data.wind,
                         clouds: data.clouds,

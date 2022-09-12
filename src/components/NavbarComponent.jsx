@@ -17,19 +17,29 @@ const NavbarComponent = () => {
     };
 
     return (
-        <Navbar bg="light" expand="sm">
-            <Link
-                to="/"
-                className={`nav-link ${
-                    location.pathname === "/" ? "active" : "" //da riempire con delle route
-                }`}
-            >
-                <Navbar.Brand>Weather app</Navbar.Brand>
-            </Link>
+        <Navbar bg="light" expand="md">
+            <Navbar.Brand>Weather app</Navbar.Brand>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto"></Nav>
+                <Nav className="mr-auto">
+                    <Link
+                        to="/"
+                        className={`nav-link ${
+                            location.pathname === "/" ? "active" : "" //da riempire con delle route
+                        }`}
+                    >
+                        Home
+                    </Link>
+                    <Link
+                        to="/history"
+                        className={`nav-link ${
+                            location.pathname === "/history" ? "active" : "" //da riempire con delle route
+                        }`}
+                    >
+                        Città cercate
+                    </Link>
+                </Nav>
                 <Form
                     inline
                     onSubmit={(e) => {

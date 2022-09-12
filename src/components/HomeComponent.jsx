@@ -89,9 +89,29 @@ const HomeComponent = () => {
             .catch((error) => console.log(error));
     };
 
+    // const imageFetch = () => {
+    //     console.log("fetch immagine");
+    //     fetch(`https://imsea.herokuapp.com/api/1?q=messina`, {
+    //         method: "GET",
+    //         mode: "no-cors",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Access-Control-Allow-Origin": " *",
+    //         },
+    //     })
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             console.log(data.results);
+    //             setImage(data.results[0]);
+    //         })
+    //         .then(() => console.log(image))
+    //         .catch((error) => console.log(error));
+    // };
+
     useEffect(() => {
         console.log("did mount");
         weatherFetch();
+        // imageFetch();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [weatherInfo.search]);
 
